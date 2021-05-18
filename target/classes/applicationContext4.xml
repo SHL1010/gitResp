@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student1" class="com.shl.bean.Student">
+
+        <!--数组注入-->
+        <property name="books">
+
+            <array>
+                <value>数组注入_JAVA</value>
+                <value>数组注入_Mysql</value>
+                <value>数组注入_Spring</value>
+            </array>
+
+        </property>
+
+        <!--Set集合注入-->
+        <property name="bookSet">
+
+            <array>
+                <value>Set集合注入_JAVA</value>
+                <value>Set集合注入_Mysql</value>
+                <value>Set集合注入_Spring</value>
+            </array>
+
+        </property>
+
+        <!--List集合注入-->
+        <property name="bookList">
+
+            <list>
+                <value>List集合注入_数学</value>
+                <value>List集合注入_英语</value>
+                <value>List集合注入_语文</value>
+            </list>
+
+        </property>
+
+        <!--Map集合注入-->
+        <property name="bookMap">
+
+            <map>
+                <entry key="Map集合注入_Java" value="Line"></entry>
+                <entry key="Map集合注入_Golang" value="哈哈哈小白龙"></entry>
+                <entry key="Map集合注入_JVM" value="蓝染"></entry>
+            </map>
+
+        </property>
+
+        <!--List集合注入书籍对象-->
+
+        <property name="bookList2">
+
+            <list>
+                <ref bean="book2"></ref>
+                <ref bean="book3"></ref>
+                <ref bean="book4"></ref>
+
+
+            </list>
+
+
+        </property>
+
+
+
+    </bean>
+
+    <!--声明3本书籍book对象-->
+    <bean id="book2" class="com.shl.bean.Book">
+        <property name="bname" value="斗破苍穹"></property>
+        <property name="author" value="天蚕土豆"></property>
+    </bean>
+
+    <bean id="book3" class="com.shl.bean.Book" p:bname="逍遥游" p:author="SHL"></bean>
+    <bean id="book4" class="com.shl.bean.Book" c:bname="掌机王SP" c:author="掌机王"></bean>
+
+
+
+</beans>

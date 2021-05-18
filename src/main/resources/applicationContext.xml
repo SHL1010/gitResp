@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user1" class="com.shl.bean.User"></bean>
+
+    <bean id="user2" class="com.shl.bean.User">
+
+        <!--
+        通过set方法赋值 使用 <property name="userid" value="1"></property> 标签
+        name="要设置的变量名"  value="要设置的变量值"
+        -->
+        <property name="userid" value="1"></property>
+        <property name="username" value="shl"></property>
+        <property name="password" value="123456"></property>
+
+    </bean>
+
+    <bean id="user3" class="com.shl.bean.User">
+
+        <!--
+        通过全参构造方法来赋值 使用<constructor-arg >标签
+        -->
+
+        <constructor-arg name="userid" value="2"></constructor-arg>
+        <constructor-arg name="username" value="Nemo"></constructor-arg>
+        <constructor-arg name="password" value="abcdefg"></constructor-arg>
+
+    </bean>
+
+    <bean id="user4" class="com.shl.bean.User">
+
+        <!--
+        通过全参构造方法来赋值 使用<constructor-arg >标签
+        除了可以用name 还可以使用 index
+        index 是索引的意思 从0开始
+        -->
+        <constructor-arg index="0" value="3"></constructor-arg>
+        <constructor-arg index="1" value="大龙"></constructor-arg>
+        <constructor-arg index="2" value="789654"></constructor-arg>
+
+    </bean>
+
+    <!--
+    通过 p 名称空间和 c 名称空间实现 DI
+    在约束  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 下面 加上
+     xmlns:p="http://www.springframework.org/schema/p"
+     xmlns:c="http://www.springframework.org/schema/c"
+     这两句
+    -->
+
+    <!--p 名称空间-->
+    <bean id="user5" class="com.shl.bean.User"
+          p:userid="4" p:username="小明" p:password="123456asd"></bean>
+
+    <!--c 名称空间-->
+    <bean id="user6" class="com.shl.bean.User"
+          c:userid="5" c:username="小白龙" c:password="1a2b3c"></bean>
+
+
+
+</beans>

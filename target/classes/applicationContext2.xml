@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--特殊符号-->
+    <bean id="user1" class="com.shl.bean.User">
+
+        <property name="userid">
+            <!--赋空值 使用 null 标签-->
+            <null></null>
+
+        </property>
+
+        <!--
+        特殊符号 使用转义字符 参照HTML
+        < (小于号使用 &lt; ) > (大于号使用 &gt; )
+        & (and符使用 &amp; )-->
+
+        <property name="username" value="&amp;张&lt;大海&gt;"></property>
+
+        <!--特殊符号 还可以用 <![CDATA[内容]]> 使用 value标签-->
+        <property name="password" >
+
+            <value>
+                <![CDATA[&<>1234]]>
+
+            </value>
+        </property>
+
+
+    </bean>
+
+
+
+</beans>
